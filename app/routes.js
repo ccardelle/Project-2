@@ -20,6 +20,12 @@ module.exports = function(app, passport) {
         res.redirect('/');
     });
 
+    // ABOUT PAGE
+    app.get('/about', function(req, res) {
+        res.render('about.hbs');
+    });
+
+
 // =============================================================================
 // AUTHENTICATE (FIRST LOGIN) ==================================================
 // =============================================================================
@@ -187,9 +193,11 @@ module.exports = function(app, passport) {
 };
 
 // route middleware to ensure user is logged in
-function isLoggedIn(req, res, next) {
-    if (req.isAuthenticated())
-        return next();
+    function isLoggedIn(req, res, next) {
+        if (req.isAuthenticated())
+            return next();
 
-    res.redirect('/');
-}
+        res.redirect('/');
+    }
+
+
