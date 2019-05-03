@@ -20,7 +20,7 @@ module.exports = function(app, passport) {
         res.redirect('/');
     });
 
-    // ABOUT PAGE
+    // ABOUT PAGE =================================
     app.get('/about', function(req, res) {
         res.render('about.hbs');
     });

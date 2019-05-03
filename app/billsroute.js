@@ -1,21 +1,28 @@
-const Celebrity = require('./models/celebrity.js')
-
+const Bills = require('./models/bills.js')
 
 
 
 module.exports = function(app, passport) {
 
-    app.get('/celebrities', (req,res,next) => {
-        Celebrity.find().then(celebs => {
-          res.render('celebrities.hbs', { celebs })
-        })
-      })
+    // app.get('/bills', (req,res,next) => {
+    //     Bills.find().then(bills => {
+    //       res.render('bills.hbs', { bills })
+    //     })
+    //   })
       
+      app.get('/bills', (req,res,next) => {
+        res.render('bills.hbs')
+        });
       
-      app.post("/saveActorToTheDatabase", (req,res,next) =>{
-        console.log('did we make it????', req.body)
-        Celebrity.create(req.body).then(result => {
-          res.redirect('celebrities')
+
+
+
+
+      
+      app.post("/createBill", (req,res,next) =>{
+        console.log('Creating Bill', req.body)
+        Bills.create(req.body).then(result => {
+          res.redirect('profile')
         })
       
       })
