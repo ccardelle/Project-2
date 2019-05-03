@@ -6,7 +6,10 @@ const BillSchema = new Schema({
   name:       String,
   amount: Number, 
   datecycle: Number,
-  created: {type: Date, default: Date.now}
+  paid: Boolean,
+  notes: String,
+  created: {type: Date, default: Date.now},
+  userId: {type: Schema.Types.ObjectId, ref:'User'}
 })
 
 const Bills = mongoose.model('bills', BillSchema)

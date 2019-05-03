@@ -19,6 +19,14 @@ module.exports = function(app, passport) {
 
 
       
+      app.get("/createBill", (req,res,next) =>{
+        console.log('Creating Bill', req.body)
+        Bills.create(req.body).then(result => {
+          res.render('createBill')
+        })
+      
+      })
+      
       app.post("/createBill", (req,res,next) =>{
         console.log('Creating Bill', req.body)
         Bills.create(req.body).then(result => {
