@@ -1,1 +1,11 @@
 <h2> Bills </h2>
+<ul>
+{{#each bills}}
+  <li>Company Name: <b>{{name}}</b>
+      Amount: <b>{{amount}}</b>
+      Due: <b>{{duedate}}</b><br>
+      Notes: <b>{{notes}}</b>
+      userId: <b>{{userId}}</b></li>
+      <hr>
+  {{/each}}
+</ul>

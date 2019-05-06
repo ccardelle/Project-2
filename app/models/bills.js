@@ -1,11 +1,15 @@
 const mongoose = require('mongoose')
+// mongoose.Promise = global.Promise;
+
 
 const Schema = mongoose.Schema
 
 const BillSchema = new Schema({
-  name:       String,
+  name: String,
   amount: Number, 
-  datecycle: Number,
+  billtype: String,
+  datecycle: String,
+  duedate: String,
   paid: Boolean,
   notes: String,
   created: {type: Date, default: Date.now},

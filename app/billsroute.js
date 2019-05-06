@@ -4,37 +4,54 @@ const Bills = require('./models/bills.js')
 
 module.exports = function(app, passport) {
 
-    // app.get('/bills', (req,res,next) => {
-    //     Bills.find().then(bills => {
-    //       res.render('bills.hbs', { bills })
-    //     })
-    //   })
-      
-      app.get('/bills', (req,res,next) => {
-        res.render('bills.hbs')
-        });
-      
-
-
-
-
-      
-      app.get("/createBill", (req,res,next) =>{
-        console.log('Creating Bill', req.body)
-        Bills.create(req.body).then(result => {
-          res.render('createBill')
+    app.get('/profile', (req,res,next) => {
+        Bills.find().then(bills => {
+          console.log(bills)
+          res.render('profile.hbs', {bills:bills})
         })
-      
       })
       
-      app.post("/createBill", (req,res,next) =>{
-        console.log('Creating Bill', req.body)
-        Bills.create(req.body).then(result => {
+      // app.get('/bills', (req,res,next) => {
+      //   res.render('bills.hbs')
+      //   });
+   
+      app.post("/createBill", isLoggedIn, (req,res,next) =>{
+        console.log('Creating Bill', req.body, req.user._id)
+        let bill = req.body;
+        bill['userId'] = req.user._id
+        Bills.create(bill).then(result => {
           res.redirect('profile')
         })
       
       })
+
+
       
+      
+      app.get('/deleteBill/:id', (req, res, next)=>{
+        Bills.findByIdAndRemove(req.params.id).then(data=>{
+          console.log(data)
+          res.redirect('/profile')
+        }).catch(err => console.log(err) )
+      
+      })
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                 ///details/5cc9e9a3329be1f82a23c0da
       app.get('/details/:celebID', (req,res,next)=>{
         Celebrity.findById(req.params.celebID).then(celeb=>{
@@ -63,4 +80,14 @@ module.exports = function(app, passport) {
         })
       })
 
+}
+
+
+
+// Logged in Verification
+function isLoggedIn(req,res,next){
+  if (req.isAuthenticated())
+    return next();
+    
+  res.redirect('/');
 }

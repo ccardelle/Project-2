@@ -1,4 +1,8 @@
 
+
+
+
+
 <hr>
 <div class="container bootstrap snippet">
     <div class="row">
@@ -14,7 +18,7 @@
 
             <ul class="list-group">
                 <li class="list-group-item bg-success">Profile</li>
-                <li class="list-group-item text-right"><span class="pull-left"><strong>Bills</strong></span> 4</li>
+                <li class="list-group-item text-right"><span class="pull-left"><strong>Bills</strong></span> 0</li>
                 <li class="list-group-item text-right"><span class="pull-left"><strong>Total</strong></span> $2081.88</li>
                 {{!-- <li class="list-group-item text-right"><span class="pull-left"><strong>PLACEHOLDER</strong></span> PLACEHOLDER</li> --}}
 
@@ -27,10 +31,9 @@
 
             <ul class="list-group">
                 <li class="list-group-item bg-success">Actions <i class="fa fa-dashboard fa-1x"></i></li>
-                <li class="list-group-item text-right"><span class="pull-left"><strong><a class="text-dark" href="/createBill">Add a Bill</strong></span> + </li></a>
+                <li class="list-group-item text-right"><span class="pull-left"><strong><a class="text-dark" data-toggle="modal" data-target="#addNewBillModal" href="">Add a Bill</strong></span> + </li></a>
                 <li class="list-group-item text-right"><span class="pull-left"><strong><a class="text-dark" href="/deleteBill">Remove a Bill</strong></span> - </li></a>
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                        Launch demo modal</button>
+                
                 {{!-- <li class="list-group-item text-right"><span class="pull-left"><strong>Posts</strong></span> 37</li>
                 <li class="list-group-item text-right"><span class="pull-left"><strong>Followers</strong></span> 78</li> --}}
             </ul>
@@ -64,46 +67,28 @@
                                     <th>Amount Due</th>
                                     <th>Date Due</th>
                                     <th>Cycle</th>
-                                    <th>Added</th>
+                                    {{!-- <th>Added</th> --}}
+                                    <th></th>
                                 </tr>
                             </thead>
                             <tbody id="items">
+                                
+                                {{#each bills}}
                                 <tr>
-                                    <td>1</td>
-                                    <td>Comcast </td>
-                                    <td>Cable</td>
-                                    <td>$203.76</td>
-                                    <td>May 30</td>
-                                    <td>Monthly</td>
-                                    <td>Today</td>
+                                    <td>{{inc @index}}</td>
+                                    <td>{{name}} </td>
+                                    <td>{{billtype}}</td>
+                                    <td>${{amount}}</td>
+                                    <td>{{duedate}}</td>
+                                    <td>{{datecycle}}</td>
+                                    {{!-- <td>{{created}}</td> --}}
+                                    <td>
+                                    <a href='/deleteBill/{{this._id}}'><button type="button" class="btn btn-secondary">Delete</button></a>
+                                    
+                                    </td>
+                                    
                                 </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>FPL</td>
-                                    <td>Electric</td>
-                                    <td>$453.12</td>
-                                    <td>May 21</td>
-                                    <td>Monthly</td>
-                                    <td>Today</td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>Little Angels Day Care</td>
-                                    <td>Child Care</td>
-                                    <td>$225</td>
-                                    <td>May 7</td>
-                                    <td>Weekly</td>
-                                    <td>Today</td>
-                                </tr>
-                                <tr>
-                                    <td>4</td>
-                                    <td>Justin Bieber Fan Club</td>
-                                    <td>Entertainment</td>
-                                    <td>$1200</td>
-                                    <td>May 3</td>
-                                    <td>Daily</td>
-                                    <td>Today</td>
-                                </tr>
+                                {{/each}}
                                 {{!-- <tr>
                                     <td>5</td>
                                     <td>Table cell</td>
@@ -173,7 +158,7 @@
 
                 </div>
                 <!--/tab-pane-->
-                <div class="tab-pane" id="messages">
+                {{!-- <div class="tab-pane" id="messages">
 
                     <h2></h2>
 
@@ -190,7 +175,7 @@
 
                     </ul>
 
-                </div>
+                </div> --}}
                 <!--/tab-pane-->
                 {{!-- <div class="tab-pane" id="settings">
 
@@ -284,7 +269,6 @@
 
     <div class="page-header text-center">
         <a href="/logout" class="fas fa-sign-out-alt btn-sm"> Logout</a>
-        {{!-- <a href="/logout" class="btn btn-default btn-lg"> Logout</a> --}}
     </div>
 
     {{!-- <div class="row text-center">
@@ -379,66 +363,76 @@
    
 
 </div> --}}
-<div class="modal" tabindex="-1" role="dialog">
-  <div class="modal-dialog" role="document">
+
+
+
+{{!-- Add new Bill Modal --}}
+<div class="modal fade" id="addNewBillModal" tabindex="-1" role="dialog" aria-labelledby="addNewBillModalTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Modal title</h5>
+        <h5 class="modal-title" id="exampleModalLongTitle">Add a Bill</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        <p><form action="/createBill" method="POST">
-  <div class="form-group">
-    <label for="exampleFormControlInput1">Company Name: </label>
-    <input type="text" class="form-control" id="exampleFormControlInput1">
-  </div>
+
+        {{!-- New Bill Form --}}
+        <form action="/createBill" method="POST" id="newBill">
+            <div class="form-group">
+                <label for="exampleFormControlInput1">Company Name: </label>
+                <input type="text" class="form-control" id="exampleFormControlInput1" name="name">
+            </div>
+            
+            <div class="form-group">
+                <label>Bill Amount: </label>
+                <input type="text" class="form-control" name="amount">
+            </div>
+
+            <div class="form-group">
+                <label>Bill Type:</label>
+                <select class="form-control" name="billtype">
+                <option>Mortgage / Rent</option>
+                <option>Utilities</option>
+                <option>Entertainment</option>
+                <option>Food</option>
+                <option>Insurance</option>
+                <option>Car</option>
+                <option>Credit Cards</option>
+                <option>Other</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label> Bill Cycle: </label>
+                <select class="form-control" name="datecycle">
+                <option>Daily</option>
+                <option>Weekly</option>
+                <option>Bi-Weekly</option>
+                <option>Monthly</option>
+                <option>Quarterly</option>
+                <option>Bi-Annually</option>
+                <option>Yearly</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label>Due Date: (ie. May 30) </label>
+                <input type="text" class="form-control" name="duedate">
+            </div>
+
+            <div class="form-group">
+                <label>Notes:</label>
+                <textarea class="form-control" rows="4" name="notes"></textarea>
+            </div>
   
-  <div class="form-group">
-    <label for="exampleFormControlInput1">Bill Amount: </label>
-    <input type="text" class="form-control">
-  </div>
-
-  <div class="form-group">
-    <label>Bill Type:</label>
-    <select class="form-control">
-      <option>Mortgage / Rent</option>
-      <option>Utilities</option>
-      <option>Mortgage</option>
-      <option>Entertainment</option>
-      <option>Other</option>
-    </select>
-  </div>
-
-  <div class="form-group">
-    <label for="exampleFormControlSelect1"> Bill Cycle: </label>
-    <select class="form-control">
-      <option>Daily</option>
-      <option>Weekly</option>
-      <option>Bi-Weekly</option>
-      <option>Monthly</option>
-      <option>Quarterly</option>
-      <option>Bi-Annually</option>
-      <option>Yearly</option>
-    </select>
-  </div>
-  
-  <div class="form-group">
-    <label for="exampleFormControlInput1">Due Date: (ie. May 30) </label>
-    <input type="text" class="form-control">
-  </div>
-
-  <div class="form-group">
-    <label>Notes:</label>
-    <textarea class="form-control" rows="4"></textarea>
-  </div>
-  <input type="submit" />
-</form></p>
+        </form>
       </div>
+      
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary">Save changes</button>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary" form='newBill'>Save changes</button>
       </div>
     </div>
   </div>
