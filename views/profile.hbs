@@ -7,7 +7,7 @@
 <div class="container bootstrap snippet">
     <div class="row">
         <div class="col-sm-10">
-            <h1>{{ user.local.email }}</h1></div>
+            <h1>{{user.local.email}}</h1></div>
         <div class="col-sm-2">
             <a href="/users" class="pull-right"><img title="profile image" class="img-circle img-responsive" src="/images/user-sm.png"></a>
         </div>
@@ -19,20 +19,18 @@
             <ul class="list-group">
                 <li class="list-group-item bg-success">Profile</li>
                 <li class="list-group-item text-right"><span class="pull-left"><strong>Bills</strong></span> 0</li>
-                <li class="list-group-item text-right"><span class="pull-left"><strong>Total</strong></span> $2081.88</li>
+                <li class="list-group-item text-right"><span class="pull-left"><strong>Total</strong></span> $</li>
                 {{!-- <li class="list-group-item text-right"><span class="pull-left"><strong>PLACEHOLDER</strong></span> PLACEHOLDER</li> --}}
 
             </ul>
 
-            {{!-- <div class="panel panel-default">
-                <div class="panel-heading">Website <i class="fa fa-link fa-1x"></i></div>
-                <div class="panel-body"><a href="http://bootnipets.com">bootnipets.com</a></div>
-            </div> --}}
+           
 
             <ul class="list-group">
                 <li class="list-group-item bg-success">Actions <i class="fa fa-dashboard fa-1x"></i></li>
                 <li class="list-group-item text-right"><span class="pull-left"><strong><a class="text-dark" data-toggle="modal" data-target="#addNewBillModal" href="">Add a Bill</strong></span> + </li></a>
-                <li class="list-group-item text-right"><span class="pull-left"><strong><a class="text-dark" href="/deleteBill">Remove a Bill</strong></span> - </li></a>
+                <li class="list-group-item text-right"><span class="pull-left"><strong><a class="text-dark" href="/billDetail">View Detailed Page</strong></span> > </li></a>
+                <li class="list-group-item text-right"><span class="pull-left"><strong><a class="text-dark" href="/billChart">View Charts</strong></span> > </li></a>
                 
                 {{!-- <li class="list-group-item text-right"><span class="pull-left"><strong>Posts</strong></span> 37</li>
                 <li class="list-group-item text-right"><span class="pull-left"><strong>Followers</strong></span> 78</li> --}}

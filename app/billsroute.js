@@ -4,7 +4,7 @@ const Bills = require('./models/bills.js')
 
 module.exports = function(app, passport) {
 
-    app.get('/profile', (req,res,next) => {
+    app.get('/profile', isLoggedIn, (req,res,next) => {
         Bills.find().then(bills => {
           console.log(bills)
           res.render('profile.hbs', {bills:bills})
@@ -28,7 +28,7 @@ module.exports = function(app, passport) {
 
       
       
-      app.get('/deleteBill/:id', (req, res, next)=>{
+      app.get('/deleteBill/:id', isLoggedIn, (req, res, next)=>{
         Bills.findByIdAndRemove(req.params.id).then(data=>{
           console.log(data)
           res.redirect('/profile')
@@ -37,10 +37,18 @@ module.exports = function(app, passport) {
       })
 
       
+      
+      app.get('/billChart', (req, res, next) => {
+        res.render('billCharts')
+      })
 
 
-
-
+      app.get('/billDetail', (req, res, next) => {
+        Bills.find().then(bills => {
+          res.render('billDetail', {bills:bills})
+        })
+        
+      })
 
 
 
@@ -89,5 +97,5 @@ function isLoggedIn(req,res,next){
   if (req.isAuthenticated())
     return next();
     
-  res.redirect('/');
+  res.redirect('/login');
 }
