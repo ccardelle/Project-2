@@ -1,9 +1,11 @@
 <div class="container row">
 {{#each bills}}
   <div class="col-md-3 card">
+    <section class="card-header">
+      {{name}}
+    </section>
     <ul>
-      <li>{{name}}</li>
-      <li>{{amount}}</li>
+      <li>${{amount}}</li>
       <li>{{billtype}}</li>
       <li>{{notes}}</li>
     </ul>
