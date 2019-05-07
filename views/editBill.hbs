@@ -1,0 +1,61 @@
+<h1>Edit Bill</h1>
+
+
+
+<div class="container">
+<form action="/editBill" method="POST" id="editBill">
+            <div class="form-group">
+                <label for="exampleFormControlInput1">Company Name:</label>
+                <input type="text" class="form-control" id="exampleFormControlInput1" name="name" placeholder="{{name}}">
+            </div>
+            
+            <div class="form-group">
+                <label>Bill Amount: </label>
+                <input type="text" class="form-control" name="amount" placeholder="{{amount}}">
+            </div>
+
+            <div class="form-group">
+                <label>Bill Type:</label>
+                <select class="form-control" name="billtype" placeholder="{{billtype}}">
+                <option>Mortgage / Rent</option>
+                <option>Utilities</option>
+                <option>Entertainment</option>
+                <option>Food</option>
+                <option>Insurance</option>
+                <option>Car</option>
+                <option>Credit Cards</option>
+                <option>Other</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label> Bill Cycle: </label>
+                <select class="form-control" name="datecycle" placeholder="{{datecycle}}">
+                <option>Daily</option>
+                <option>Weekly</option>
+                <option>Bi-Weekly</option>
+                <option>Monthly</option>
+                <option>Quarterly</option>
+                <option>Bi-Annually</option>
+                <option>Yearly</option>
+                <option>None</option>
+
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label>Due Date: (ie. May 30) </label>
+                <input type="text" class="form-control" name="duedate" placeholder="{{duedate}}">
+            </div>
+
+            <div class="form-group">
+                <label>Notes:</label>
+                <textarea class="form-control" rows="4" name="notes" placeholder="{{notes}}"></textarea>
+            </div>
+
+            <a href="/billDetail"><button type="button" class="btn btn-secondary">Cancel</button></a>
+            <button type="submit" class="btn btn-primary btn-success" form='editBill'>Save changes</button>
+  
+        </form>
+      </div>
+      </div>

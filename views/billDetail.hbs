@@ -2,22 +2,25 @@
   <h1> Details </h1>
 </div>
 
-<div class"container-flexing">
-<div class="detail-container">
-{{#each bills}}
-  <div class="card col-lg-4 new-card-spacing">
-    <section class="card-header">
-      <b>Name:</b> {{name}}
-    </section>
-    
-     <span><b>Amount:</b> ${{amount}}</span>
-    <span><b>Type:</b> {{billtype}}</span>
-      <span><b>Date Due:</b> {{duedate}}</span>
-      <span><b>Notes:</b> {{notes}}</span>
-      <a href='/deleteBill/{{this._id}}'> <button type="button" class="btn btn-secondary">Delete</button></a>
-  </div>
-  {{/each}}
-</div>
+<div class"container container-flexing">
+  <div class="detail-container row">
+    {{#each bills}}
+      <div class="card col-sm-4 new-card-spacing">
+        <section class="card-header bg-success text-light row">
+          <b>{{name}}</b>
+        </section>
+      
+        <span><b>Amount:</b> ${{amount}}</span>
+        <span><b>Type:</b> {{billtype}}</span>
+         <span><b>Date Due:</b> {{duedate}}</span>
+         <span><b>Date Cycle:</b> {{datecycle}}</span>
+        <span><b>Notes:</b> {{notes}}</span>
+      
+        <span><a href='/editBill/{{this._id}}'> <button type="button" class="btn btn-success">Edit</button></a>
+        <a href='/deleteBill/{{this._id}}'> <button type="button" class="btn btn-secondary">Delete</button></a></span>
+        </div>
+      {{/each}}
+    </div>
 </div>
 
 

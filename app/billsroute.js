@@ -8,9 +8,12 @@ module.exports = function(app, passport) {
         Bills.find({ 'userId' : req.user.id }).then(bills => {
           console.log(bills)
           console.log(req.user.local.email)
+          bills.totalPrice = calculateTotal(bills)
           bills.email = req.user.local.email
+          bills.totalBills = bills.length;
           res.render('profile.hbs',{bills:bills})
         })
+        .catch(err => { next(err)})
       })
 
 
@@ -38,7 +41,26 @@ module.exports = function(app, passport) {
       
       })
 
-      
+// Edit Bill Route
+      // app.get('/editBill/:id', isLoggedIn, (req, res, next)=>{
+      //   Bills.findOneAndUpdate({_id: req.params.id}, req.body).then(data=>{
+      //     console.log(data)
+      //     res.redirect('back')
+      //   }).catch(err => console.log(err) )
+
+      // })
+
+      app.get('/editBill/:id', isLoggedIn, (req, res, next)=>{
+        Bills.find({_id:req.params.id}).then(bills=>{
+          console.log("This is the bill to edit " + bills)
+          res.render('editBill', bills[0])
+
+        }).catch(err => console.log(err) )
+
+      })
+
+
+
 // Bill Charts Route
       app.get('/billChart', (req, res, next) => {
         res.render('billCharts')
@@ -54,12 +76,7 @@ module.exports = function(app, passport) {
         
       })
 
-// Edit Bill Route
-      app.get('/edit/:id', (req, res,next) => {
-        Bills.findById(req.params.id).then(bills=>{
-          res.render("edit.hbs", { bills })
-        })
-      })
+
 
 
 
@@ -103,3 +120,22 @@ function isLoggedIn(req,res,next){
     
   res.redirect('/login');
 }
+
+function calculateTotal(obj) {
+  let total = 0;
+  
+
+  for (let i = 0; i < obj.length; i++) {
+    
+    total += obj[i].amount
+    
+  }
+  // obj.forEach(function(item) {
+  //   total += item.name;
+  // });
+  
+  // console.log(total);
+  return total;
+  
+}
+
