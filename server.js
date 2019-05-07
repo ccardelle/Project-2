@@ -59,7 +59,6 @@ hbs.registerHelper('json', function(context) {
 
 // routes ======================================================================
 require('./app/routes.js')(app, passport); // load our routes and pass in our app and fully configured passport
-require('./app/index.js')(app, passport)
 require('./app/billsroute.js')(app, passport)
 // launch ======================================================================
 app.listen(port);

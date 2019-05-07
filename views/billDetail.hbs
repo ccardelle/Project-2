@@ -2,13 +2,14 @@
 {{#each bills}}
   <div class="col-md-3 card">
     <section class="card-header">
-      {{name}}
+      <b>Name:</b> {{name}}
     </section>
-    <ul>
-      <li>${{amount}}</li>
-      <li>{{billtype}}</li>
-      <li>{{notes}}</li>
-    </ul>
+    
+     <span><b>Amount:</b> ${{amount}}</span>
+    <span><b>Type:</b> {{billtype}}</span>
+      <span><b>Date Due:</b> {{duedate}}</span>
+      <span><b>Notes:</b> {{notes}}</span>
+    
   </div>
   {{/each}}
 </div>

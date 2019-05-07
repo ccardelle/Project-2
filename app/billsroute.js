@@ -5,11 +5,16 @@ const Bills = require('./models/bills.js')
 module.exports = function(app, passport) {
 
     app.get('/profile', isLoggedIn, (req,res,next) => {
-        Bills.find().then(bills => {
+        Bills.find({ 'userId' : req.user.id }).then(bills => {
           console.log(bills)
-          res.render('profile.hbs', {bills:bills})
+          console.log(req.user.local.email)
+          email = req.user.local.email
+          res.render('profile.hbs',{bills:bills})
         })
       })
+
+
+      
       
       // app.get('/bills', (req,res,next) => {
       //   res.render('bills.hbs')
@@ -44,7 +49,9 @@ module.exports = function(app, passport) {
 
 
       app.get('/billDetail', (req, res, next) => {
-        Bills.find().then(bills => {
+        Bills.find({ 'userId' : req.user.id }).then(bills => {
+        
+          
           res.render('billDetail', {bills:bills})
         })
         
