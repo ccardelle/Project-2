@@ -8,7 +8,7 @@ module.exports = function(app, passport) {
         Bills.find({ 'userId' : req.user.id }).then(bills => {
           console.log(bills)
           console.log(req.user.local.email)
-          email = req.user.local.email
+          bills.email = req.user.local.email
           res.render('profile.hbs',{bills:bills})
         })
       })
@@ -16,9 +16,6 @@ module.exports = function(app, passport) {
 
       
       
-      // app.get('/bills', (req,res,next) => {
-      //   res.render('bills.hbs')
-      //   });
    
       app.post("/createBill", isLoggedIn, (req,res,next) =>{
         console.log('Creating Bill', req.body, req.user._id)
@@ -32,7 +29,7 @@ module.exports = function(app, passport) {
 
 
       
-      
+// Delete Bill Route
       app.get('/deleteBill/:id', isLoggedIn, (req, res, next)=>{
         Bills.findByIdAndRemove(req.params.id).then(data=>{
           console.log(data)
@@ -42,12 +39,12 @@ module.exports = function(app, passport) {
       })
 
       
-      
+// Bill Charts Route
       app.get('/billChart', (req, res, next) => {
         res.render('billCharts')
       })
 
-
+// Bill Detail Route
       app.get('/billDetail', (req, res, next) => {
         Bills.find({ 'userId' : req.user.id }).then(bills => {
         
@@ -57,8 +54,12 @@ module.exports = function(app, passport) {
         
       })
 
-
-
+// Edit Bill Route
+      app.get('/edit/:id', (req, res,next) => {
+        Bills.findById(req.params.id).then(bills=>{
+          res.render("edit.hbs", { bills })
+        })
+      })
 
 
 
@@ -83,12 +84,8 @@ module.exports = function(app, passport) {
       })
       
       
-      app.get('/edit/:id', (req, res,next) => {
-        Celebrity.findById(req.params.id).then(celeb=>{
-          res.render("edit.hbs", { celeb })
-        })
-      })
-      //http://localhost:3000/edit/5cc9ee3d420635faac3fd7df
+      
+      
       app.post('/edit/:id', (req, res,next) => {
         Celebrity.findByIdAndUpdate(req.params.id, req.body).then(ifItWOrKs=>{
           res.redirect(`/details/${req.params.id}`)

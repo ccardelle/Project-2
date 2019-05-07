@@ -1,6 +1,11 @@
-<div class="container row">
+<div class="text-center">
+  <h1> Details </h1>
+</div>
+
+<div class"container-flexing">
+<div class="detail-container">
 {{#each bills}}
-  <div class="col-md-3 card">
+  <div class="card col-lg-4 new-card-spacing">
     <section class="card-header">
       <b>Name:</b> {{name}}
     </section>
@@ -9,9 +14,10 @@
     <span><b>Type:</b> {{billtype}}</span>
       <span><b>Date Due:</b> {{duedate}}</span>
       <span><b>Notes:</b> {{notes}}</span>
-    
+      <a href='/deleteBill/{{this._id}}'> <button type="button" class="btn btn-secondary">Delete</button></a>
   </div>
   {{/each}}
+</div>
 </div>
 
 

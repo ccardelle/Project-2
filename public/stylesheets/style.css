@@ -1,5 +1,22 @@
+body {
+  min-height: 100vh !important;
+}
+
+container-flexing {
+  display: flex !important;
+  justify-content: center !important;
+  
+  
+
+}
+
+.new-card-spacing {
+  margin-bottom: 20px;
+  margin-right: 10px;
+}
+
 .page-footer {
-    
+    margin-top: 30vh;
     width: 100% !important;
 }
 
@@ -11,6 +28,12 @@
     margin-top: 55px;
 }
 
+.detail-container {
+  display: flex;
+  align-content: center;
+  /* margin: 5vh 10vw; */
+
+}
 
 header {
     position: relative;
@@ -60,3 +83,4 @@ header {
       display: none;
     }
   }
+
