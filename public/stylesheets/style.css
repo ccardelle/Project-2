@@ -99,5 +99,27 @@ header {
     .profile-img {
       width: 10% !important;
     }
+
+    .modal-img {
+      max-width: 325px !important;
+    }
+
+    .modal-dialog {
+      position: absolute;
+      top: 50%;
+      left: 10%;
+      transform: translate(-50%, -50%) !important;
+    }
 }
 
+.modal-img {
+  max-width: 1000px;
+}
+
+
+.modal-dialog {
+  position: absolute;
+  top: 50%;
+  left: 35%;
+  transform: translate(-50%, -50%) !important;
+}

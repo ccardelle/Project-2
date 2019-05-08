@@ -36,7 +36,8 @@
   <div class="col-md-4">
     <div class="thumbnail">
       
-        <img class="img-thumbnail" src="/images/billify-profile.png" alt="Lights" style="width:100%">
+        <a data-toggle="modal" data-target="#imgModal1" href=""><img class="img-thumbnail" src="/images/billify-profile.png" alt="" style="width:100%"></a>
+        
         <div class="caption">
           <p class="text-center">Dashboard - An overview page that you can use to create your bills</p>
         </div>
@@ -46,7 +47,7 @@
     <div class="col-md-4">
       <div class="thumbnail">
         
-          <img class="img-thumbnail" src="/images/billify-details.png" alt="Nature" style="width:100%">
+          <a data-toggle="modal" data-target="#imgModal2" href=""><img class="img-thumbnail" src="/images/billify-details.png" alt="" style="width:100%"></a>
           <div class="caption">
             <p class="text-center">Detailed page to view, edit, and delete bills.</p>
           </div>
@@ -56,7 +57,7 @@
     <div class="col-md-4">
       <div class="thumbnail">
         
-          <img class="img-thumbnail" src="/images/billify-charts.png" alt="Fjords" style="width:100%">
+          <a data-toggle="modal" data-target="#imgModal3" href=""><img class="img-thumbnail" src="/images/billify-charts.png" alt="" style="width:100%"></a>
           <div class="caption">
             <p class="text-center">Charts that quickly display your expense data.</p>
           </div>
@@ -94,3 +95,50 @@
     </div>
 
     
+{{!-- Image 1 Modal --}}
+<div class="modal fade" id="imgModal1" tabindex="-1" role="dialog" aria-labelledby="imgModalTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      
+        
+          <img class="modal-img" src="/images/billify-profile.png" style="width:250%">
+        
+      
+      
+
+      
+    </div>
+  </div>
+</div>
+
+{{!-- Image 2 Modal --}}
+<div class="modal fade" id="imgModal2" tabindex="-1" role="dialog" aria-labelledby="imgModalTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      
+        
+          <img class="modal-img" src="/images/billify-details.png" style="width:250%">
+        
+      
+      
+
+      
+    </div>
+  </div>
+</div>
+
+{{!-- Image 3 Modal --}}
+<div class="modal fade" id="imgModal3" tabindex="-1" role="dialog" aria-labelledby="imgModalTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      
+        
+          <img class="modal-img" src="/images/billify-charts.png" style="width:250%">
+        
+      
+      
+
+      
+    </div>
+  </div>
+</div>

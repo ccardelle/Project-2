@@ -11,6 +11,7 @@ module.exports = function(app, passport) {
           bills.totalPrice = calculateTotal(bills)
           bills.email = req.user.local.email
           bills.totalBills = bills.length;
+          console.log('Final bills object ======================== ' + bills)
           res.render('profile.hbs',{bills:bills})
         })
         .catch(err => { next(err)})
@@ -126,13 +127,7 @@ function calculateTotal(obj) {
   for (let i = 0; i < obj.length; i++) {
     
     total += obj[i].amount
-    
   }
-  // obj.forEach(function(item) {
-  //   total += item.name;
-  // });
-  
-  // console.log(total);
   return total;
   
 }
