@@ -84,9 +84,15 @@ header {
     }
    .content-spacer {
     margin-top: 95px;
+   }
+    .modal-content {
+     width: 75% !important;
+   }
+    .profile-h1 {
+    font-size: 1.1rem !important;
   }
-  .modal-content {
-    width: 75% !important;
-  }
+    .profile-img {
+      width: 10% !important;
+    }
 }
 
