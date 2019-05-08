@@ -75,6 +75,11 @@ header {
     z-index: 1;
   }
   
+  hr {
+    margin: 5%;
+  }
+
+
   @media (pointer: coarse) and (hover: none) {
     header {
       background: url('') black no-repeat center center scroll;
