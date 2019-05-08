@@ -1,22 +1,23 @@
-<h1>Edit Bill</h1>
-
+<div class="text-center">
+  <h1> Edit Bill </h1>
+</div>
 
 
 <div class="container">
-<form action="/editBill" method="POST" id="editBill">
+<form action="" method="POST" id="editBill">
             <div class="form-group">
                 <label for="exampleFormControlInput1">Company Name:</label>
-                <input type="text" class="form-control" id="exampleFormControlInput1" name="name" placeholder="{{name}}">
+                <input type="text" class="form-control" id="exampleFormControlInput1" name="name" value="{{name}}">
             </div>
             
             <div class="form-group">
                 <label>Bill Amount: </label>
-                <input type="text" class="form-control" name="amount" placeholder="{{amount}}">
+                <input type="text" class="form-control" name="amount" value={{amount}}>
             </div>
 
             <div class="form-group">
                 <label>Bill Type:</label>
-                <select class="form-control" name="billtype" placeholder="{{billtype}}">
+                <select class="form-control" name="billtype" value="{{billtype}}">
                 <option>Mortgage / Rent</option>
                 <option>Utilities</option>
                 <option>Entertainment</option>
@@ -30,7 +31,7 @@
 
             <div class="form-group">
                 <label> Bill Cycle: </label>
-                <select class="form-control" name="datecycle" placeholder="{{datecycle}}">
+                <select class="form-control" name="datecycle" value="{{datecycle}}">
                 <option>Daily</option>
                 <option>Weekly</option>
                 <option>Bi-Weekly</option>
@@ -45,12 +46,12 @@
             
             <div class="form-group">
                 <label>Due Date: (ie. May 30) </label>
-                <input type="text" class="form-control" name="duedate" placeholder="{{duedate}}">
+                <input type="text" class="form-control" name="duedate" value="{{duedate}}">
             </div>
 
             <div class="form-group">
                 <label>Notes:</label>
-                <textarea class="form-control" rows="4" name="notes" placeholder="{{notes}}"></textarea>
+                <textarea class="form-control" rows="4" name="notes" defaultValue="{{notes}}"></textarea>
             </div>
 
             <a href="/billDetail"><button type="button" class="btn btn-secondary">Cancel</button></a>

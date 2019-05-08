@@ -82,5 +82,11 @@ header {
     header video {
       display: none;
     }
+   .content-spacer {
+    margin-top: 95px;
   }
+  .modal-content {
+    width: 75% !important;
+  }
+}
 

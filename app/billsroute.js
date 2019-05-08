@@ -41,15 +41,7 @@ module.exports = function(app, passport) {
       
       })
 
-// Edit Bill Route
-      // app.get('/editBill/:id', isLoggedIn, (req, res, next)=>{
-      //   Bills.findOneAndUpdate({_id: req.params.id}, req.body).then(data=>{
-      //     console.log(data)
-      //     res.redirect('back')
-      //   }).catch(err => console.log(err) )
-
-      // })
-
+// Edit Bill Routes
       app.get('/editBill/:id', isLoggedIn, (req, res, next)=>{
         Bills.find({_id:req.params.id}).then(bills=>{
           console.log("This is the bill to edit " + bills)
@@ -57,6 +49,12 @@ module.exports = function(app, passport) {
 
         }).catch(err => console.log(err) )
 
+      })
+
+      app.post('/editBill/:id', (req,res,next) => {
+        Bills.findByIdAndUpdate({_id:req.params.id}, req.body).then(bills => {
+          res.redirect('/billDetail')
+        })
       })
 
 
