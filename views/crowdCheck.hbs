@@ -1,0 +1,14 @@
+
+<h1> Crowds Information </h1> <p>Work in progress</p>
+
+<form action='' method="POST">
+  <input type='text' name="name">
+  <button type="submit" class="btn btn-secondary"> SEARCH </button>
+</form>
+
+<h3> Total results: {{bills.totalResults}}</h3>
+<h2> Largest Amount was: </h2>
+{{#each bills}}
+ <li>{{name}}</li>
+ <li>{{amount}}</li> 
+{{/each}}

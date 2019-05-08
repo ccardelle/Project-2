@@ -55,6 +55,7 @@ hbs.registerHelper('json', function(context) {
     return JSON.stringify(context);
 
 });
+//let data = JSON.parse('{{{json bills}}}')
 
 
 // routes ======================================================================

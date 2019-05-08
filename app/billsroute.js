@@ -62,7 +62,7 @@ module.exports = function(app, passport) {
 
 // Bill Charts Route
       app.get('/billChart', (req, res, next) => {
-        res.render('billCharts')
+        res.render('billCharts', {data: [2,5,'hi', 'gsd45']})
       })
 
 // Bill Detail Route
@@ -75,6 +75,24 @@ module.exports = function(app, passport) {
         
       })
 
+// Crowds Route
+app.get('/crowdCheck', isLoggedIn, (req,res,next) => {
+  res.render('crowdCheck.hbs')
+  })
+ 
+
+
+app.post('/crowdCheck', isLoggedIn, (req,res,next) => {
+  console.log('THIS IS THE RESULT OF THE CROWD SEARCH ////////////////// ' + req.body.name)
+  Bills.find({name: req.body.name}).then(bills => {
+    console.log('Crowds result search +++++++++++++++++++++++++++ ' + bills)
+    bills.largestAmount = calculateLargest(bills)
+    bills.totalResults = bills.length;
+    console.log('Crowds object ======================== ' + bills)
+    res.render('crowdCheck.hbs',{bills:bills})
+  })
+  .catch(err => { next(err)})
+})
 
 
 
@@ -82,33 +100,7 @@ module.exports = function(app, passport) {
 
 
 
-
-
-                ///details/5cc9e9a3329be1f82a23c0da
-      app.get('/details/:celebID', (req,res,next)=>{
-        Celebrity.findById(req.params.celebID).then(celeb=>{
-          res.render("celebDetail.hbs", { celeb })
-        })
-      })
-      
-      
-      app.get('/delete/:id', (req, res, next)=>{
-        Celebrity.findByIdAndDelete(req.params.id).then(r=>{
-          console.log(r)
-          res.redirect('/celebrities')
-        }).catch(err => console.log(err) )
-      })
-      
-      
-      
-      
-      app.post('/edit/:id', (req, res,next) => {
-        Celebrity.findByIdAndUpdate(req.params.id, req.body).then(ifItWOrKs=>{
-          res.redirect(`/details/${req.params.id}`)
-        })
-      })
-
-}
+   
 
 
 
@@ -132,3 +124,23 @@ function calculateTotal(obj) {
   
 }
 
+function calculateLargest(obj) {
+  let highest = 0;
+  
+
+  for (let i = 0; i < obj.length;) {
+    if (obj[i].amount > highest) {
+    highest = obj[i].amount
+  } else {
+    i++
+  }
+
+  return highest;
+  
+}
+
+}
+
+
+
+}
