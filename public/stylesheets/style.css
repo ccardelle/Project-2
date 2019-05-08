@@ -104,7 +104,7 @@ header {
       max-width: 325px !important;
     }
 
-    .modal-dialog {
+    .modal-dialog-img {
       position: absolute;
       top: 50%;
       left: 10%;
@@ -117,7 +117,7 @@ header {
 }
 
 
-.modal-dialog {
+.modal-dialog-img {
   position: absolute;
   top: 50%;
   left: 35%;
