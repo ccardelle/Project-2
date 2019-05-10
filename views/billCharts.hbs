@@ -16,20 +16,44 @@
 </div>
 
 <script>
-console.log('2435245234')
 //console.log({{data}})
 
-let data = JSON.parse('{{{json data}}}')
-console.log(data)
-    
+let bills = JSON.parse('{{{data}}}')
+
+console.log(bills)
+
+let labels = [];
+let data = []; 
+let obj = { } 
+    //'Mortgage / Rent':0, 'Utilities':0, 'Entertainment':0, 'Food':0, 'Insurance':0, 'Other':0
+
+bills.forEach(bill=>{
+    for(key in bill){
+        if(key === 'billtype') {
+            if (isNaN( obj[ bill[key] ] ) ) {
+                 obj[ bill[key] ] = 0
+            }
+            obj[ bill[key] ] += bill['amount']
+        }
+    }
+})
+console.log(obj)
+
+for (label in obj ){
+    labels.push(label)
+    data.push(obj[label])
+}
+
+console.log(data, labels)
+//  { Utilites: 40000, }
 var ctx = document.getElementById('pieChart').getContext('2d');
 var pieChart = new Chart(ctx, {
     type: 'pie',
     data: {
-        labels: ['Mortgage', 'Utilities', 'Entertainment', 'Food', 'Insurance', 'Other'],
+        labels: labels,
         datasets: [{
             label: '',
-            data: [12, 19, 3, 5, 2, 3],
+            data: data,
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
@@ -59,17 +83,15 @@ var pieChart = new Chart(ctx, {
         }
     }
 });
-</script>
 
-<script>
 var ctx = document.getElementById('lineChart').getContext('2d');
 var lineChart = new Chart(ctx, {
     type: 'line',
     data: {
-        labels: ['Mortgage', 'Utilities', 'Entertainment', 'Food', 'Insurance', 'Other'],
+        labels: labels,
         datasets: [{
             label: '',
-            data: [12, 19, 3, 5, 2, 3],
+            data: data,
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
@@ -99,17 +121,15 @@ var lineChart = new Chart(ctx, {
         }
     }
 });
-</script>
 
-<script>
 var ctx = document.getElementById('barChart').getContext('2d');
 var barChart = new Chart(ctx, {
     type: 'bar',
     data: {
-        labels: ['Mortgage', 'Utilities', 'Entertainment', 'Food', 'Insurance', 'Other'],
+        labels: labels,
         datasets: [{
             label: '',
-            data: [12, 19, 3, 5, 2, 3],
+            data: data,
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',

@@ -20,6 +20,8 @@ var path = require('path');
 
 var hbs = require ('hbs');
 
+
+
 // configuration ===============================================================
 mongoose.connect(configDB.url); // connect to our database
 
@@ -51,10 +53,6 @@ hbs.registerHelper("inc", function(value, options)
     return parseInt(value) + 1;
 });
 
-hbs.registerHelper('json', function(context) {
-    return JSON.stringify(context);
-
-});
 //let data = JSON.parse('{{{json bills}}}')
 
 
@@ -64,6 +62,8 @@ require('./app/billsroute.js')(app, passport)
 // launch ======================================================================
 // app.listen(port);
 // console.log('The magic happens on port ' + port);
+
+
 
 app.listen(process.env.PORT || 3000, function(){
     console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);

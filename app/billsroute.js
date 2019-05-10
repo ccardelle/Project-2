@@ -6,6 +6,7 @@ module.exports = function(app, passport) {
 
     app.get('/profile', isLoggedIn, (req,res,next) => {
         Bills.find({ 'userId' : req.user.id }).then(bills => {
+          console.log(65464764645654, req.user.id, req.user._id)
           console.log(bills)
           console.log(req.user.local.email)
           bills.totalPrice = calculateTotal(bills)
@@ -61,8 +62,12 @@ module.exports = function(app, passport) {
 
 
 // Bill Charts Route
-      app.get('/billChart', (req, res, next) => {
-        res.render('billCharts', {data: [2,5,'hi', 'gsd45']})
+      app.get('/billChart', isLoggedIn, (req, res, next) => {
+        console.log('bill chart')
+        Bills.find({ 'userId' : req.user._id }).then(bills => {
+          console.log(bills)
+          res.render('billCharts', {data: JSON.stringify(bills)})
+        })
       })
 
 // Bill Detail Route
