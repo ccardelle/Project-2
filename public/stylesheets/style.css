@@ -1,121 +1,110 @@
-/* body {
-  min-height: 100vh !important;
-} */
-
 .container-flexing {
   display: flex !important;
   justify-content: center !important;
-  
-  
-
 }
 
 .new-card-spacing {
   margin-bottom: 20px;
-  /* margin-right: 10px; */
 }
 
 .page-footer {
-    margin-top: 30vh;
-    width: 100% !important;
+  margin-top: 30vh;
+  width: 100% !important;
 }
 
 .navbar-margins {
-    margin-bottom: 25px !important;
+  margin-bottom: 25px !important;
 }
 
 .content-spacer {
-    margin-top: 55px;
+  margin-top: 55px;
 }
 
 .detail-container {
   display: flex;
   align-content: center;
   /* margin: 5vh 10vw; */
-
 }
 
 header {
-    position: relative;
-    background-color: black;
-    height: 75vh;
-    min-height: 25rem;
-    width: 100%;
-    overflow: hidden;
+  position: relative;
+  background-color: black;
+  height: 75vh;
+  min-height: 25rem;
+  width: 100%;
+  overflow: hidden;
+}
+
+header video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: 0;
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+}
+
+header .container {
+  position: relative;
+  z-index: 2;
+}
+
+header .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  opacity: 0.5;
+  z-index: 1;
+}
+
+hr {
+  margin: 5%;
+}
+
+@media (pointer: coarse) and (hover: none) {
+  header {
+    background: url("") black no-repeat center center scroll;
   }
-  
   header video {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    z-index: 0;
-    -ms-transform: translateX(-50%) translateY(-50%);
-    -moz-transform: translateX(-50%) translateY(-50%);
-    -webkit-transform: translateX(-50%) translateY(-50%);
-    transform: translateX(-50%) translateY(-50%);
+    display: none;
   }
-  
-  header .container {
-    position: relative;
-    z-index: 2;
-  }
-  
-  header .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    background-color: black;
-    opacity: 0.5;
-    z-index: 1;
-  }
-  
-  hr {
-    margin: 5%;
-  }
-
-
-  @media (pointer: coarse) and (hover: none) {
-    header {
-      background: url('') black no-repeat center center scroll;
-    }
-    header video {
-      display: none;
-    }
-   .content-spacer {
+  .content-spacer {
     margin-top: 95px;
-   }
-    .modal-content {
-     width: 75% !important;
-   }
-    .profile-h1 {
+  }
+  .modal-content {
+    width: 75% !important;
+  }
+  .profile-h1 {
     font-size: 1.1rem !important;
   }
-    .profile-img {
-      width: 10% !important;
-    }
+  .profile-img {
+    width: 10% !important;
+  }
 
-    .modal-img {
-      max-width: 325px !important;
-    }
+  .modal-img {
+    max-width: 325px !important;
+  }
 
-    .modal-dialog-img {
-      position: absolute;
-      top: 50%;
-      left: 10%;
-      transform: translate(-50%, -50%) !important;
-    }
+  .modal-dialog-img {
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    transform: translate(-50%, -50%) !important;
+  }
 }
 
 .modal-img {
   max-width: 1000px;
 }
-
 
 .modal-dialog-img {
   position: absolute;
