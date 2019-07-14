@@ -1,15 +1,10 @@
-
-
-
-
-
 <br>
 <div class="container-fluid bootstrap snippet">
     <div class="row">
         <div class="col-sm-10">
             <h1 class="profile-h1 text-left">{{bills.email}}
-            <img title="profile image" class="img-responsive profile-img" src="/images/user-sm.png"></a></h1>
-            
+                <img title="profile image" class="img-responsive profile-img" src="/images/user-sm.png"></a></h1>
+
         </div>
         <div class="col-sm-2">
         </div>
@@ -21,39 +16,36 @@
 
             <ul class="list-group">
                 <li class="list-group-item bg-success"><b>General Information</b></li>
-                <li class="list-group-item text-center"><span class="pull-left"><strong>Bills </strong></span><i class="fas fa-file-invoice-dollar"></i> {{bills.totalBills}}</li>
-                <li class="list-group-item text-center"><span class="pull-left"><strong>Total </strong></span> <i class="fas fa-dollar-sign"></i> {{bills.totalPrice}}</li>
-                {{!-- <li class="list-group-item text-right"><span class="pull-left"><strong>PLACEHOLDER</strong></span> PLACEHOLDER</li> --}}
+                <li class="list-group-item text-center"><span class="pull-left"><strong>Bills </strong></span><i
+                        class="fas fa-file-invoice-dollar"></i> {{bills.totalBills}}</li>
+                <li class="list-group-item text-center"><span class="pull-left"><strong>Total </strong></span> <i
+                        class="fas fa-dollar-sign"></i> {{bills.totalPrice}}</li>
 
             </ul>
 
-           
+
 
             <ul class="list-group">
                 <li class="list-group-item bg-success"><b>Actions </b><i class="fa fa-dashboard fa-1x"></i></li>
-                <li class="list-group-item text-center"><span class="pull-left"><strong><a class="text-dark" data-toggle="modal" data-target="#addNewBillModal" href="">Add a Bill </strong></span><i class="far fa-plus-square"></i></li></a>
-                <li class="list-group-item text-center"><span class="pull-left"><strong><a class="text-dark" href="/billDetail">Details </strong></span><i class="fas fa-search-dollar"></i> </li></a>
-                <li class="list-group-item text-center"><span class="pull-left"><strong><a class="text-dark" href="/billChart">Charts </strong></span><i class="fas fa-chart-line"></i> </li></a>
-                {{!-- <li class="list-group-item text-center"><span class="pull-left"><strong><a class="text-dark" href="/crowdCheck">Crowds </strong></span><i class="fas fa-users"></i> </li></a> --}}
-                {{!-- <li class="list-group-item text-right"><span class="pull-left"><strong>Posts</strong></span> 37</li>
-                <li class="list-group-item text-right"><span class="pull-left"><strong>Followers</strong></span> 78</li> --}}
+                <li class="list-group-item text-center"><span class="pull-left"><strong><a class="text-dark"
+                                data-toggle="modal" data-target="#addNewBillModal" href="">Add a Bill </strong></span><i
+                        class="far fa-plus-square"></i></li></a>
+                <li class="list-group-item text-center"><span class="pull-left"><strong><a class="text-dark"
+                                href="/billDetail">Details </strong></span><i class="fas fa-search-dollar"></i> </li>
+                </a>
+                <li class="list-group-item text-center"><span class="pull-left"><strong><a class="text-dark"
+                                href="/billChart">Charts </strong></span><i class="fas fa-chart-line"></i> </li></a>
+
             </ul>
 
-            {{!-- <div class="panel panel-default">
-                <div class="panel-heading">Social Media</div>
-                <div class="panel-body">
-                    <i class="fa fa-facebook fa-2x"></i> <i class="fa fa-github fa-2x"></i> <i class="fa fa-twitter fa-2x"></i> <i class="fa fa-pinterest fa-2x"></i> <i class="fa fa-google-plus fa-2x"></i>
-                </div>
-            </div> --}}
+
 
         </div>
         <!--/col-3-->
         <div class="col-sm-9">
 
             <ul class="nav nav-tabs" id="myTab">
-                {{!-- <li class="active"><a href="/" data-toggle="tab">Home</a></li>
-                <li><a href="#messages" data-toggle="tab">Messages</a></li>
-                <li><a href="#settings" data-toggle="tab">Settings</a></li> --}}
+
             </ul>
 
             <div class="tab-content">
@@ -74,7 +66,7 @@
                                 </tr>
                             </thead>
                             <tbody id="items">
-                                
+
                                 {{#each bills}}
                                 <tr>
                                     <td>{{inc @index}}</td>
@@ -83,17 +75,17 @@
                                     <td>${{amount}}</td>
                                     <td>{{duedate}}</td>
                                     <td>{{datecycle}}</td>
-                                    {{!-- <td>{{created}}</td> --}}
                                     <td>
-                                    {{!-- <a data-toggle="modal" data-target="#editBillModal"> <button type="button" class="btn btn-secondary" id="{{@index}}">Edit</button></a> --}}
+                                        {{!-- <a data-toggle="modal" data-target="#editBillModal"> <button type="button" class="btn btn-secondary" id="{{@index}}">Edit</button></a> --}}
                                     </td>
                                     <td>
-                                    <a href='/deleteBill/{{this._id}}'> <button type="button" class="btn btn-secondary">Delete <i class="fas fa-ban"></i></button></a>
+                                        <a href='/deleteBill/{{this._id}}'> <button type="button"
+                                                class="btn btn-secondary">Delete <i class="fas fa-ban"></i></button></a>
                                     </td>
-                                    
+
                                 </tr>
                                 {{/each}}
-                                
+
                             </tbody>
                         </table>
                         <hr>
@@ -109,286 +101,94 @@
 
                 </div>
                 <!--/tab-pane-->
-                {{!-- <div class="tab-pane" id="messages">
 
-                    <h2></h2>
-
-                    <ul class="list-group">
-                        <li class="list-group-item text-muted">Inbox</li>
-                        <li class="list-group-item text-right"><a href="#" class="pull-left">Here is your a link to the latest summary report from the..</a> 2.13.2014</li>
-                        <li class="list-group-item text-right"><a href="#" class="pull-left">Hi Joe, There has been a request on your account since that was..</a> 2.11.2014</li>
-                        <li class="list-group-item text-right"><a href="#" class="pull-left">Nullam sapien massaortor. A lobortis vitae, condimentum justo...</a> 2.11.2014</li>
-                        <li class="list-group-item text-right"><a href="#" class="pull-left">Thllam sapien massaortor. A lobortis vitae, condimentum justo...</a> 2.11.2014</li>
-                        <li class="list-group-item text-right"><a href="#" class="pull-left">Wesm sapien massaortor. A lobortis vitae, condimentum justo...</a> 2.11.2014</li>
-                        <li class="list-group-item text-right"><a href="#" class="pull-left">For therepien massaortor. A lobortis vitae, condimentum justo...</a> 2.11.2014</li>
-                        <li class="list-group-item text-right"><a href="#" class="pull-left">Also we, havesapien massaortor. A lobortis vitae, condimentum justo...</a> 2.11.2014</li>
-                        <li class="list-group-item text-right"><a href="#" class="pull-left">Swedish chef is assaortor. A lobortis vitae, condimentum justo...</a> 2.11.2014</li>
-
-                    </ul>
-
-                </div> --}}
                 <!--/tab-pane-->
-                {{!-- <div class="tab-pane" id="settings">
+            </div>
+            <!--/tab-content-->
 
-                    <hr>
-                    <form class="form" action="##" method="post" id="registrationForm">
-                        <div class="form-group">
-
-                            <div class="col-xs-6">
-                                <label for="first_name">
-                                    <h4>First name</h4></label>
-                                <input type="text" class="form-control" name="first_name" id="first_name" placeholder="first name" title="enter your first name if any.">
-                            </div>
-                        </div>
-                        <div class="form-group">
-
-                            <div class="col-xs-6">
-                                <label for="last_name">
-                                    <h4>Last name</h4></label>
-                                <input type="text" class="form-control" name="last_name" id="last_name" placeholder="last name" title="enter your last name if any.">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-
-                            <div class="col-xs-6">
-                                <label for="phone">
-                                    <h4>Phone</h4></label>
-                                <input type="text" class="form-control" name="phone" id="phone" placeholder="enter phone" title="enter your phone number if any.">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-xs-6">
-                                <label for="mobile">
-                                    <h4>Mobile</h4></label>
-                                <input type="text" class="form-control" name="mobile" id="mobile" placeholder="enter mobile number" title="enter your mobile number if any.">
-                            </div>
-                        </div>
-                        <div class="form-group">
-
-                            <div class="col-xs-6">
-                                <label for="email">
-                                    <h4>Email</h4></label>
-                                <input type="email" class="form-control" name="email" id="email" placeholder="you@email.com" title="enter your email.">
-                            </div>
-                        </div>
-                        <div class="form-group">
-
-                            <div class="col-xs-6">
-                                <label for="email">
-                                    <h4>Location</h4></label>
-                                <input type="email" class="form-control" id="location" placeholder="somewhere" title="enter a location">
-                            </div>
-                        </div>
-                        <div class="form-group">
-
-                            <div class="col-xs-6">
-                                <label for="password">
-                                    <h4>Password</h4></label>
-                                <input type="password" class="form-control" name="password" id="password" placeholder="password" title="enter your password.">
-                            </div>
-                        </div>
-                        <div class="form-group">
-
-                            <div class="col-xs-6">
-                                <label for="password2">
-                                    <h4>Verify</h4></label>
-                                <input type="password" class="form-control" name="password2" id="password2" placeholder="password2" title="enter your password2.">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-xs-12">
-                                <br>
-                                <button class="btn btn-lg btn-success" type="submit"><i class="glyphicon glyphicon-ok-sign"></i> Save</button>
-                                <button class="btn btn-lg" type="reset"><i class="glyphicon glyphicon-repeat"></i> Reset</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-
-            </div> --}}
-            <!--/tab-pane-->
         </div>
-        <!--/tab-content-->
-
+        <!--/col-9-->
     </div>
-    <!--/col-9-->
-</div>
-<!--/row-->
+    <!--/row-->
     <div class="container">
 
-    <div class="page-header text-center">
-        <a href="/logout" class="fas fa-sign-out-alt btn-sm"> Logout</a>
-    </div>
-
-    {{!-- <div class="row text-center">
-
-        <!-- LOCAL INFORMATION -->
-        <div class="col-sm-12">
-            <div class="well">
-                <h3><span class="fa fa-user"></span> Local</h3>
-
-                {{#if user.local.email }}
-                    <p>
-                        <strong>id</strong>: {{ user._id }}<br>
-                        <strong>email</strong>:{{ user.local.email }}<br>
-                        <strong>password</strong>: {{ user.local.password }}
-                    </p>
-                    
-                    <a href="/unlink/local" class="btn btn-default">Unlink</a>
-                {{else}}
-                    <a href="/connect/local" class="btn btn-default">Connect Local</a>
-                {{/if}}
-
-            </div>
-        </div>
-        
-        <!-- FACEBOOK INFORMATION -->
-        <div class="col-sm-4">
-            <div class="well">
-                <h3 class="text-primary"><span class="fa fa-facebook"></span> Facebook</h3>
-
-                <!-- check if the user has this token (is the user authenticated with this social account) -->
-                {{#if user.facebook.token }}
-                    <p>
-                        <strong>id</strong>: {{ user.facebook.id }}<br>
-                        <strong>token</strong>: {{ user.facebook.token }}<br>
-                        <strong>email</strong>: {{ user.facebook.email }}<br>
-                        <strong>name</strong>: {{ user.facebook.name }}<br>
-                    </p>
-
-                    <a href="/unlink/facebook" class="btn btn-primary">Unlink</a>
-                {{else}}
-                    <a href="/connect/facebook" class="btn btn-primary">Connect Facebook</a>
-                {{/if}}
-
-            </div>
-        </div>
-    </div>
-    <div class="row">
-
-        <!-- TWITTER INFORMATION -->
-        <div class="col-sm-4">
-            <div class="well">
-                <h3 class="text-info"><span class="fa fa-twitter"></span> Twitter</h3>
-
-                {{#if user.twitter.token }}
-                    <p>
-                        <strong>id</strong>: {{ user.twitter.id }}<br>
-                        <strong>token</strong>: {{ user.twitter.token }}<br>
-                        <strong>email</strong>: {{ user.twitter.email }}<br>
-                        <strong>name</strong>: {{ user.twitter.name }}<br>
-                    </p>
-
-                    <a href="/unlink/twitter" class="btn btn-primary">Unlink</a>
-                {{else}}
-                    <a href="/connect/twitter" class="btn btn-primary">Connect Twitter</a>
-                {{/if}}
-
-            </div>
+        <div class="page-header text-center">
+            <a href="/logout" class="fas fa-sign-out-alt btn-sm"> Logout</a>
         </div>
 
-        <!-- GOOGLE INFORMATION -->
-        <div class="col-sm-4">
-            <div class="well">
-                <h3 class="text-danger"><span class="fa fa-google-plus"></span> Google+</h3>
 
-                {{#if user.google.token }}
-                    <p>
-                        <strong>id</strong>: {{ user.google.id }}<br>
-                        <strong>token</strong>: {{ user.google.token }}<br>
-                        <strong>email</strong>: {{ user.google.email }}<br>
-                        <strong>name</strong>: {{ user.google.name }}<br>
-                    </p>
 
-                    <a href="/unlink/google" class="btn btn-primary">Unlink</a>
-                {{else}}
-                    <a href="/connect/google" class="btn btn-primary">Connect Google</a>
-                {{/if}}
 
+
+        {{!-- Add new Bill Modal --}}
+        <div class="modal fade" id="addNewBillModal" tabindex="-1" role="dialog" aria-labelledby="addNewBillModalTitle"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Add a Bill</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+
+                        {{!-- New Bill Form --}}
+                        <form action="/createBill" method="POST" id="newBill">
+                            <div class="form-group">
+                                <label for="exampleFormControlInput1">Company Name: </label>
+                                <input type="text" class="form-control" id="exampleFormControlInput1" name="name">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Bill Amount: </label>
+                                <input type="text" class="form-control" name="amount">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Bill Type:</label>
+                                <select class="form-control" name="billtype">
+                                    <option>Mortgage / Rent</option>
+                                    <option>Utilities</option>
+                                    <option>Entertainment</option>
+                                    <option>Food</option>
+                                    <option>Insurance</option>
+                                    <option>Car</option>
+                                    <option>Credit Cards</option>
+                                    <option>Other</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label> Bill Cycle: </label>
+                                <select class="form-control" name="datecycle">
+                                    <option>Daily</option>
+                                    <option>Weekly</option>
+                                    <option>Bi-Weekly</option>
+                                    <option>Monthly</option>
+                                    <option>Quarterly</option>
+                                    <option>Bi-Annually</option>
+                                    <option>Yearly</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Due Date: (ie. May 30) </label>
+                                <input type="text" class="form-control" name="duedate">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Notes:</label>
+                                <textarea class="form-control" rows="4" name="notes"></textarea>
+                            </div>
+
+                        </form>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary btn-success" form='newBill'>Save changes</button>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-
-   
-
-</div> --}}
-
-
-
-{{!-- Add new Bill Modal --}}
-<div class="modal fade" id="addNewBillModal" tabindex="-1" role="dialog" aria-labelledby="addNewBillModalTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Add a Bill</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-
-        {{!-- New Bill Form --}}
-        <form action="/createBill" method="POST" id="newBill">
-            <div class="form-group">
-                <label for="exampleFormControlInput1">Company Name: </label>
-                <input type="text" class="form-control" id="exampleFormControlInput1" name="name">
-            </div>
-            
-            <div class="form-group">
-                <label>Bill Amount: </label>
-                <input type="text" class="form-control" name="amount">
-            </div>
-
-            <div class="form-group">
-                <label>Bill Type:</label>
-                <select class="form-control" name="billtype">
-                <option>Mortgage / Rent</option>
-                <option>Utilities</option>
-                <option>Entertainment</option>
-                <option>Food</option>
-                <option>Insurance</option>
-                <option>Car</option>
-                <option>Credit Cards</option>
-                <option>Other</option>
-                </select>
-            </div>
-
-            <div class="form-group">
-                <label> Bill Cycle: </label>
-                <select class="form-control" name="datecycle">
-                <option>Daily</option>
-                <option>Weekly</option>
-                <option>Bi-Weekly</option>
-                <option>Monthly</option>
-                <option>Quarterly</option>
-                <option>Bi-Annually</option>
-                <option>Yearly</option>
-                </select>
-            </div>
-            
-            <div class="form-group">
-                <label>Due Date: (ie. May 30) </label>
-                <input type="text" class="form-control" name="duedate">
-            </div>
-
-            <div class="form-group">
-                <label>Notes:</label>
-                <textarea class="form-control" rows="4" name="notes"></textarea>
-            </div>
-  
-        </form>
-      </div>
-      
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary btn-success" form='newBill'>Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-
- 
